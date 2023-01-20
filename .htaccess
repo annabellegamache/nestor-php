@@ -1,0 +1,31 @@
+### Réécriture d'URLs avec Mod_Rewrite
+
+##### Étape 1 ####
+# On demande à Apache d'activer la réécriture des URLs
+RewriteEngine On
+###############################################################################
+
+##### Étape 2 ####
+# On ajoute des conditions qui vont limiter à quels dossiers/fichiers on veut 
+# appliquer la réécriture d'URLs qui suivra
+
+RewriteCond %{REQUEST_URI} !^/ressources/
+
+# b) Dans cette deuxième condition, on dit : en autant que le chemin requis ne 
+# désigne un fichier existant sur le serveur (Ça préviendra la réécriture des 
+# URLs pour les requêtes 
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# c) Dans cette dernière condition, on dit : en autant que le chemin requis ne 
+# désigne un dossier existant sur le serveur (Ça préviendra la réécriture des 
+# URLs pour les requêtes 
+RewriteCond %{REQUEST_FILENAME} !-d
+################################################################################
+
+##### Étape 3 ####
+# Et ENFIN, c'est dans cette directive que l'on fait la réécriture de l'URL : 
+# Ici on dit à Apache de rerouter tout chemin (path : la partie d'une URL après 
+# le nom du serveur) vers index.php?route=chemin
+
+RewriteRule ^(.*)$ index.php?route=$1 [QSA]
+################################################################################

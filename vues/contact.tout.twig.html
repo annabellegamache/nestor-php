@@ -1,0 +1,135 @@
+{% extends "base.twig.html" %}
+
+
+{% block titrePage %}
+<title>Liste des contacts</title>
+{% endblock %}
+
+
+{% block main %}
+    <section class="liste-enregistrements">
+        <h2>{{session.utilisateur.uti_nom}} : <code>Contacts</code> </h2>
+      
+        <div class="data">
+            
+            <!-- form ajouter-->
+            <form method="post" class="add">
+                <div class="add-info">
+                    <span>
+                        <label for="ctc_prenom">Prénom</label>
+                        <input type="text" name="ctc_prenom" value="" placeholder="Prénom">
+                    </span>
+                    <span>
+                        <label for="ctc_nom">Nom</label>
+                        <input type="text" name="ctc_nom" value="" placeholder="Nom">
+                    </span>
+                    <span>
+                        <label for="ctc_categorie">Catégorie</label>
+                       <select name="ctc_categorie">
+                            <option value="Famille">Famille</option>
+                            <option value="Ami">Ami</option>
+                            <option value="Collègue">Collègue</option>
+                            <option value="Autre">Autre</option>
+                       </select>
+                    </span>
+                    <input type="hidden" name="ctc_uti_id_ce" value="{{session.uid}}">
+                </div>
+                <div class="add-info2">
+                    <span class="numero-group">
+                        <label for="tel_numero">Numéro
+                             <input type="text" name="tel_numero[]" value="" placeholder="Numéro">
+                        </label>
+
+                        <label for="tel_poste">Poste
+                            <input type="text" name="tel_poste[]" value="" placeholder="Poste">
+                        </label>
+
+                        <label for="tel_select">Type
+                            <select class="tel_select" name="tel_type[]">
+                                <option value="Bureau" selected>Bureau</option>
+                                <option value="Cellulaire" >Cellulaire</option>
+                                <option value="Domicile" >Domicile</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </label>
+                    </span>
+                </div>
+                
+                <div class="action-add-gr">
+                    <a class="ajout_numero" href="">Ajouter un autre numéro</a>
+                    <button formaction="contact/ajouter" class="btn addcontact"><img src="https://s2.svgbox.net/hero-solid.svg?ic=user-add&color=fff" width="20" height="20"></button>
+                </div>
+            </form>
+           
+            {% for key, contact in contacts %}
+            
+            <form method="post" class="contact">
+                <div class="contact-info">
+                    <span class="action">
+                        <button formaction="contact/changer" class="btn update"><img src="https://s2.svgbox.net/materialui.svg?ic=edit&color=000" width="20" height="20"></button>
+                        <button formaction="contact/retirer" class="btn"><img src="https://s2.svgbox.net/materialui.svg?ic=close&color=000" width="20" height="20"></button>
+                    </span>
+
+                        <input type="hidden" name="ctc_id" value="{{key}}">
+                        <input type="text" name="ctc_prenom" value="{{contact[0].ctc_prenom}}"><!--peut modifier-->
+                        <input type="text" name="ctc_nom" value="{{contact[0].ctc_nom}}"> <!--peut modifier-->
+
+                        <select name="ctc_categorie">
+                            <option {{contact[0].ctc_categorie=='Famille' ? 'selected' : ''}} value="Famille">Famille</option>
+                            <option {{contact[0].ctc_categorie=='Ami' ? 'selected' : ''}} value="Ami">Ami</option>
+                            <option {{contact[0].ctc_categorie=='Collègue' ? 'selected' : ''}} value="Collègue">Collègue</option>
+                            <option {{contact[0].ctc_categorie=='Autre' ? 'selected' : ''}} value="Autre">Autre</option>
+                        </select>
+
+                        <input type="hidden" name="ctc_uti_id_ce" value="{{session.uid}}">
+                   
+                   
+                 </div>
+                 <div class="contact-info2">
+                   
+
+
+
+                        <!-- matcher le selected-->
+                        
+
+                         <!--<span><input type="text" name="ctc_id" value="{{contact.ctc_id}}" readonly></span> readonly = ne pas modifier-->
+                         
+                            {% for info in contact %}
+                            <div class="numero-info">
+                                
+                                   
+
+                                    <select class="tel_select" name="tel_type[]">
+                                        <option {{info.tel_type =='Cellulaire' ? 'selected' : ''}} value="Cellulaire">Cellulaire</option>
+                                        <option {{info.tel_type =='Domicile' ? 'selected' : ''}} value="Domicile">Domicile</option>
+                                        <option {{info.tel_type =='Bureau' ? 'selected' : ''}} value="Bureau">Bureau</option>
+                                        <option {{info.tel_type =='Autre' ? 'selected' : ''}} value="Autre">Autre</option>
+                                    </select>
+                                
+                                <input class="numero" type="text" name="tel_numero[]" value="{{info.tel_numero}}">
+                                {% if info.tel_poste %}
+                                    <input class="numero" type="text" name="tel_poste[]" value="Poste :{{info.tel_poste}}">
+                                {% else %}
+                                <input class="numero" type="text" name="tel_poste[]" value="{{info.tel_poste}}">
+                                {% endif %}
+                                <input type="hidden" name="tel_ctc_id_ce[]" value="{{key}}">
+                                
+                            </div>
+                         {% endfor %}
+                         
+
+
+                        
+
+                       
+                      
+                   
+                 </div>
+                 </form>
+            </form>
+            {% endfor %}
+        </div>
+    </section>
+    <script src="./ressources/scripts/main.js"></script>
+{% endblock %}

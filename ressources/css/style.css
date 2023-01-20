@@ -1,0 +1,387 @@
+body {
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Slab", sans-serif;
+  overflow-x: hidden;
+}
+body a, body a:active, body a:link, body a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  font-family: "Roboto", serif;
+  margin: 0;
+  padding: 0;
+}
+body header {
+  margin: 0;
+}
+body header div.barre-haut {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body header div.barre-haut a {
+  text-decoration: underline;
+}
+body header nav {
+  background-color: #aaa;
+}
+body header nav ul {
+  margin: 0;
+  padding: 0;
+}
+body header nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0.75rem 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  border: 2px solid #333;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+body header nav ul li:first-of-type {
+  margin-left: 1rem;
+}
+body header nav ul li.actif {
+  background-color: #005c4a;
+}
+body section.gestion-utilisateur form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 3rem auto;
+  font-family: "Roboto";
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+body section.gestion-utilisateur form legend {
+  background-color: #005c4a;
+  color: #eee;
+  padding: 1rem;
+  font-size: 1.3rem;
+}
+body section.gestion-utilisateur form div.champs {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 1rem;
+  margin-top: 1rem;
+}
+body section.gestion-utilisateur form div.champs label {
+  text-align: right;
+  width: 25%;
+  padding-right: 1rem;
+}
+body section.gestion-utilisateur form div.champs input {
+  flex-grow: 1;
+  padding: 0.5rem;
+}
+body section.gestion-utilisateur form .btn {
+  margin: 1rem auto;
+}
+body section.gestion-utilisateur .msg-erreur {
+  background-color: #eee;
+  width: 40%;
+  padding: 0.3rem;
+  margin: 0 auto 1rem auto;
+  box-shadow: 0 0 10px 1px rgba(33, 33, 33, 0.5);
+  text-align: center;
+  -webkit-animation: animer-sortie-message 0.75s 3s forwards;
+          animation: animer-sortie-message 0.75s 3s forwards;
+}
+body section.liste-enregistrements {
+ padding:1em;
+  width: 90vw;
+  margin: 2rem auto;
+  font-family: "Roboto";
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+body section.liste-enregistrements h2 {
+ 
+  margin-bottom: 1rem;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+body section.liste-enregistrements div.data  {
+  padding:1em;
+}
+
+body section.liste-enregistrements div.data form {
+  border-bottom: thin solid #aaa;
+}
+
+body section.liste-enregistrements div.data form label {
+  display: inline-block;
+}
+
+
+
+body section.liste-enregistrements div.data form.contact{
+  display: flex;
+  justify-content: space-between;
+  border-bottom:1px solid #999;
+}
+
+body section.liste-enregistrements div.data form.add{
+  display: flex;
+  padding:20px;
+  border: 1px solid #999;
+  border-radius: 10px;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom:40px;
+}
+
+body section.liste-enregistrements div.data a.plus{
+  display: inline-block;
+  margin-bottom:20px;
+  text-align: center;
+  padding: 1em;
+  max-width: fit-content;
+}
+
+body section.liste-enregistrements div.data form.add div.add-info{
+  display: flex;
+  width: 100%;
+  gap:20px;
+  
+}
+
+body section.liste-enregistrements div.data form.add div.add-info span{
+  width: calc(50% - 20px);
+  
+}
+
+
+body section.liste-enregistrements div.data form.add div.add-info2 span.numero-group{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap:20px;
+  
+}
+
+body section.liste-enregistrements div.data form.add select{
+ border: 1px solid #999;
+ background-color: #fff;
+ width: 90%;
+ margin-top:5px;
+ border-radius: 5px;;
+  
+}
+
+.action-add-gr {
+  text-align: right;
+}
+
+.action-add-gr a{
+  display: block;
+  text-align: left;
+  padding:1em;
+  text-decoration: underline!important;
+  color:coral!important;
+}
+
+body section.liste-enregistrements div.data form.add div.add-info2 span.numero-group label{
+  width: calc(33% - 20px);
+  
+}
+
+body section.liste-enregistrements div.data form.add div.add-info2 span.numero-group label select{
+  display: block;
+  
+}
+
+body section.liste-enregistrements div.data form.contact input{
+  border:none;
+  border-radius: 5px;
+  padding:5px;
+  margin:5px;
+}
+
+body section.liste-enregistrements div.data form.contact div.contact-info, body section.liste-enregistrements div.data form.contact div.contact-info2{
+  display: flex;
+  align-items: baseline;
+  padding:5px;
+  margin:5px;
+}
+
+body section.liste-enregistrements div.data form.contact div.contact-info select, body section.liste-enregistrements div.data form.contact div.contact-info2 select{
+  background-color: transparent;
+  margin-right: 10px;
+}
+
+body section.liste-enregistrements div.data form.contact div.contact-info2{
+  flex-direction: column;
+  width: 40%;
+}
+
+body section.liste-enregistrements div.data form.contact div.contact-info span, body section.liste-enregistrements div.data form.contact div.contact-info2 span{
+  display: flex;
+  flex-direction: column;
+}
+
+body section.liste-enregistrements div.data form.contact div.contact-info span, body section.liste-enregistrements div.data form.contact div.contact-info2 span.action{
+  flex-direction: row;
+ 
+}
+
+
+
+body section.liste-enregistrements div.data form:nth-of-type(even) {
+  background-color: #eee;
+}
+
+body section.liste-enregistrements div.data form span {
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+body section.liste-enregistrements div.data form span.action {
+  text-align: center;
+}
+body section.liste-enregistrements div.data form span input, body section.liste-enregistrements div.data form span select {
+  display:inline-block;
+  padding: 0.5rem;
+  background-color: inherit;
+  
+  
+}
+
+body section.liste-enregistrements div.data form span input, body section.liste-enregistrements div.data form.contact span select {
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  
+}
+
+
+
+body section.liste-enregistrements div.data form:not(.contact) span input {
+  display: inline-block;
+  width: 100%;
+  border: 1px solid #999;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-top:5px;
+}
+body section.liste-enregistrements div.data form, input, body section.liste-enregistrements div.data form select {
+  border: none;
+  background-color: #eee;
+}
+body section.liste-enregistrements div.data form select {
+  background-color: #fff;
+}
+body .btn {
+  border: thin solid #aaa;
+  width: 40%;
+  margin-left: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+body .btn.addcontact {
+  width: auto;
+  background-color: #005c4a;
+}
+body .btn.btn-plein {
+  width: calc(80% + 0.5rem);
+}
+body .btn.btn-ajouter, body .btn.btn-connexion {
+  background-color: #090;
+}
+/*body .btn.btn-modifier {
+  background-color: rgb(225, 146, 0);
+}*/
+body span.action .btn{
+  background-color: #999;
+  border:none;
+  max-width: 47px;
+}
+
+body div.lien{
+  text-align: center;
+  margin: 10px auto;
+}
+
+@-webkit-keyframes animer-sortie-message {
+  from {
+    transform: skew(0) translateX(0);
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  20% {
+    transform: skew(-30deg) translateX(-5%);
+    opacity: 1;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+  }
+  40% {
+    transform: skew(0) translateX(0%);
+    opacity: 1;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+  }
+  to {
+    transform: skew(30deg) translateX(100%);
+    opacity: 0;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+}
+
+@keyframes animer-sortie-message {
+  from {
+    transform: skew(0) translateX(0);
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  20% {
+    transform: skew(-30deg) translateX(-5%);
+    opacity: 1;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+  }
+  40% {
+    transform: skew(0) translateX(0%);
+    opacity: 1;
+    -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
+  }
+  to {
+    transform: skew(30deg) translateX(100%);
+    opacity: 0;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+}
+
+div.numero-info{
+  display: flex;
+}
+
+form.contact input:focus-visible, form.contact select:focus-visible{
+  outline: 3px solid #87ad91
+}
+
+body span.action .btn.update {
+  pointer-events: none;
+}
+
+body span.action .btn.update.goUpdate{
+  background-color: aquamarine!important;
+  pointer-events: all;
+  cursor: pointer;
+}

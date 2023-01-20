@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <base href="{{ constant('BASE_SERVEUR') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;900&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../ressources/css/style.css">
+   
+    {% block titrePage %}
+        <title>TP2 Nestor</title>
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <div class="barre-haut">
+            <h2>TP2 Nestor</h2>
+          {% if session.utilisateur %}
+             <!-- {{session.uid}}  -->  
+            <div> {{session.utilisateur.uti_courriel}} ( <a href="utilisateur/deconnexion">déconnexion</a> )</div>
+            {% endif %}
+        </div>
+    </header>
+
+    {% block main %}{% endblock %}
+</body>
+</html>

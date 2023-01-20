@@ -1,0 +1,34 @@
+{% extends "base.twig.html" %}
+{% block main %}
+    <section class="gestion-utilisateur">
+        <form class="connexion" action="utilisateur/ajouter" method="post">
+            <legend>Création de compte</legend>
+            <div class="champs">
+                <label for="uti_nom">Prénom et nom</label>
+                <input type="text" name="uti_nom" id="uti_nom" placeholder="Votre nom complet" required>
+            </div>
+            <div class="champs">
+                <label for="uti_courriel">Courriel</label>
+                <input type="email" name="uti_courriel" id="uti_courriel" placeholder="Adresse de courriel" required>
+            </div>
+            <div class="champs">
+                <label for="uti_mdp">Mot de passe</label>
+                <input type="password" name="uti_mdp" id="uti_mdp" placeholder="Mot de passe" required>
+            </div>
+            <div class="champs">
+                <label for="uti_mdp2">Mot de passe (confirmation)</label>
+                <input type="password" name="uti_mdp2" id="uti_mdp2" placeholder="Comfirmer mot de passe">
+            </div>
+            <input class="btn btn-connexion" type="submit" value="Créer le compte">
+            
+        </form>
+
+        <div class="lien"> 
+            <a href="utilisateur/connexion">Connexion</a>
+        </div>
+
+        {% if erreur %}
+            <div class="msg-erreur">{{erreur}}</div>                            
+        {% endif %}
+    </section>
+{% endblock %}
